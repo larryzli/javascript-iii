@@ -37,15 +37,21 @@ var employees = [{
 //  3. Return the updated employee array.
 
 // Code here
-
-
-
-
+const employeeUpdater = () => {
+  for (let i in employees) {
+    if (employees[i].firstName === 'Theo') {
+      employees.splice(i, 1);
+    }
+    if (employees[i].firstName === 'Lorie') {
+      employees[i].department = 'HR';
+    }
+  }
+  return employees;
+}
 
 
 
 // === PROBLEM 2 ==========
-
 
 // The array below represents IDs tied to reported workplace accidents. An employee accidentally entered in duplicates to array, making it look as though there are more accidents this year than there actually are. 
 // 1. Write a function called 'removeDuplicates' that will remove all duplicate entries in the workplaceAccidents array.
@@ -55,13 +61,16 @@ var employees = [{
 var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 
 // Code here
-
-
-
-
-
-
-
+const removeDuplicates = () => {
+  for (i = workplaceAccidents.length - 1; i >= 0; i--) {
+    for (j = i - 1; j >= 0; j--) {
+      if (workplaceAccidents[i] === workplaceAccidents[j]) {
+        workplaceAccidents.splice(i, 1);
+      }
+    }
+  }
+  return workplaceAccidents;
+}
 
 
 
@@ -84,12 +93,8 @@ var cat = {
 
 // Code here
 
-var grumpyActivity;
-var fluffy2ndFriend;
-
-
-
-
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name;
 
 
 
@@ -123,12 +128,11 @@ var myCar = {
 }
 
 // Code here
-
-
-
-
-
-
+const recordCleaner = () => {
+  for (i in myCar.accidents) {
+    myCar.accidents[i].atFaultForAccident = false;
+  }
+}
 
 
 
@@ -143,6 +147,15 @@ var myCar = {
 
 var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 
-
-
-
+const looper = () => {
+  for (let i = 0; i < numsArr.length; i++) {
+    for(let j = 0; j < numsArr[i].length; j++){
+      if (numsArr[i][j] % 2 === 0) {
+        numsArr[i][j] = 'even';
+      } else {
+        numsArr[i][j] = 'odd';
+      }
+    }
+  }
+  return numsArr;
+}
