@@ -50,12 +50,9 @@ They can (methods) :
 call your class Manager
 
 */
-class Manager {
+class Manager extends Employee{
     constructor(firstName, lastName, email, age) {
-        this.first_name = firstName;
-        this.last_name = lastName;
-        this.email = email;
-        this.age = age;
+        super(firstName, lastName, email, age);
         this.reports = [];
     }
     hire(employee) {
@@ -65,6 +62,7 @@ class Manager {
         this.reports.splice(index, 1);
     }
 }
+console.dir(Manager);
 
 
 /*
@@ -87,13 +85,9 @@ Everytime they fire an employee they get $100 added to their bonus.
 call your class ProgressiveManager
 */
 
-class ProgressiveManager {
+class ProgressiveManager extends Manager{
     constructor(firstName, lastName, email, age) {
-        this.first_name = firstName;
-        this.last_name = lastName;
-        this.email = email;
-        this.age = age;
-        this.reports = [];
+        super(firstName, lastName, email, age);
         this.title = 'Not a manager';
         this.bonus = 0;
     }
